@@ -1,0 +1,36 @@
+GetMapping:-
+http://localhost:9091/multiplex/seatTypes
+------------------------------------------------------------------------------------------------
+
+PostMapping:-
+http://localhost:9091/multiplex/seatTypes
+
+{
+    "seatTypeId": 301,
+    "seatTypeDesc": "Golden Row",
+    "seatFare": 300.0
+}
+------------------------------------------------------------------------------------------------
+
+GetBy I'd:-
+http://localhost:9091/multiplex/seatType/{I'd}
+
+O/p :- {
+    "seatTypeId": 301,
+    "seatTypeDesc": "Golden Row",
+    "seatFare": 300.0
+}
+-------------------------------------------------------------------------------------------------
+
+Update(Put) :- http://localhost:9091/multiplex/seatTypes
+
+O/p :- {
+    "seatTypeId": 101,
+    "seatTypeDesc": "Platanium Row",
+    "seatFare": 800.0
+}
+
+----------------------------------------------------------------------------------------------------
+
+Delete Mapping:- http://localhost:9091/multiplex/seatTypes/{I'd}
+-----------------------------------------------------------------------------------------------------

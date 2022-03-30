@@ -1,0 +1,71 @@
+GetMapping:-
+http://localhost:9091/multiplex/bookings
+------------------------------------------------------------------------------------------------
+
+PostMapping:-
+http://localhost:9091/multiplex/bookings
+
+{
+    "bookingId": 101,
+    "bookedDate": "2022-03-16",
+    "showDate": "2022-03-22",
+    "shows": {
+        "showId": 1001
+    },
+    "users": {
+        "userId": 101
+    }
+}
+------------------------------------------------------------------------------------------------
+
+GetBy I'd:-
+http://localhost:9091/multiplex/bookings/{I'd}
+
+O/p :- {
+    "bookingId": 101,
+    "bookedDate": "2022-03-16",
+    "showDate": "2022-03-22",
+    "shows": {
+        "showId": 1001,
+        "slotNo": 1,
+        "fromDate": "2022-01-23",
+        "toDate": "2022-01-24",
+        "hall": {
+            "hallId": 501,
+            "hallDesc": "Regular hall",
+            "totalCapacity": 250
+        },
+        "movies": {
+            "movieId": 1001,
+            "movieName": "Pavankhind"
+        }
+    },
+    "users": {
+        "userId": 101,
+        "userName": "Nimesh",
+        "userType": "Admin",
+        "emailId": "nimesh@gmail.com",
+        "password": "root",
+        "mobileNumber": "9874563210"
+    }
+}
+-------------------------------------------------------------------------------------------------
+
+Update(Put) :- http://localhost:9091/multiplex/bookings
+
+O/p :- {
+    "bookingId": 101,
+    "bookedDate": "2022-03-16",
+    "showDate": "2022-03-20",
+    "shows": {
+        "showId": 1001
+    },
+    "users": {
+        "userId": 101
+    }
+}
+
+----------------------------------------------------------------------------------------------------
+
+Delete Mapping:- http://localhost:9091/multiplex/bookings/{I'd}
+-----------------------------------------------------------------------------------------------------

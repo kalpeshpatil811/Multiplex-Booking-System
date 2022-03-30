@@ -1,0 +1,177 @@
+/*************************** 
+ * Created By: Laxman Adkune
+ * Date: 18/03/2022
+ **************************/
+ 
+POST: movies
+http://localhost:9091/multiplex/movies
+
+{
+    "movieId":1002,
+    "movieName": "Pavankhind"
+}
+==========================================
+POST: halls
+http://localhost:9091/multiplex/halls
+
+{
+   "hallId": 502,
+   "hallDesc": "regular hall",
+   "totalCapacity": 250
+}
+==========================================
+POST: shows
+http://localhost:9091/multiplex/shows
+
+{
+    "showId":1001,
+    "slotNo": 1,
+    "toDate": "2022-01-01",
+    "fromDate": "2022-01-28",
+    "hall": {
+        "hallId": 502
+    },
+    "movies":{
+        "movieId":1002
+    }
+}
+==========================================
+mysql> select * from shows;
++---------+------------+---------+------------+---------+----------+
+| show_id | from_date  | slot_no | to_date    | hall_id | movie_id |
++---------+------------+---------+------------+---------+----------+
+|    1001 | 2022-01-28 |       1 | 2022-01-01 |     502 |     1002 |
+|    1002 | 2022-02-28 |       2 | 2022-02-01 |     503 |     1002 |
++---------+------------+---------+------------+---------+----------+
+2 rows in set (0.00 sec)
+==========================================
+GET
+
+http://localhost:9091/multiplex/shows
+
+[
+    {
+        "showId": 1001,
+        "slotNo": 1,
+        "fromDate": "2022-01-27",
+        "toDate": "2021-12-31",
+        "hall": {
+            "hallId": 502,
+            "hallDesc": "regular hall",
+            "totalCapacity": 250
+        },
+        "movies": {
+            "movieId": 1002,
+            "movieName": "RRR"
+        }
+    },
+    {
+        "showId": 1002,
+        "slotNo": 2,
+        "fromDate": "2022-02-27",
+        "toDate": "2022-01-31",
+        "hall": {
+            "hallId": 503,
+            "hallDesc": "Basic hall",
+            "totalCapacity": 250
+        },
+        "movies": {
+            "movieId": 1002,
+            "movieName": "RRR"
+        }
+    }
+]
+==============================================
+GET by show Id
+
+http://localhost:9091/multiplex/shows/1001
+
+{
+    "showId": 1001,
+    "slotNo": 1,
+    "fromDate": "2022-01-27",
+    "toDate": "2021-12-31",
+    "hall": {
+        "hallId": 502,
+        "hallDesc": "regular hall",
+        "totalCapacity": 250
+    },
+    "movies": {
+        "movieId": 1002,
+        "movieName": "RRR"
+    }
+}
+=================================================
+PUT
+
+http://localhost:9091/multiplex/shows
+
+{
+    "showId": 1002,
+    "slotNo": 20,
+    "fromDate": "2022-03-01",
+    "toDate": "2022-02-15",
+    "hall": {
+        "hallId": 503,
+        "hallDesc": null,
+        "totalCapacity": null
+    },
+    "movies": {
+        "movieId": 1002,
+        "movieName": null
+    }
+}
+
+mysql> select * from shows;
++---------+------------+---------+------------+---------+----------+
+| show_id | from_date  | slot_no | to_date    | hall_id | movie_id |
++---------+------------+---------+------------+---------+----------+
+|    1001 | 2022-01-28 |       1 | 2022-01-01 |     502 |     1002 |
+|    1002 | 2022-03-01 |      20 | 2022-02-15 |     503 |     1002 |
++---------+------------+---------+------------+---------+----------+
+2 rows in set (0.03 sec)
+=================================================
+Delete By Id
+
+http://localhost:9091/multiplex/shows/1002
+
+BODY: {
+    "showId":1002,
+    "slotNo": 20,
+    "toDate": "2022-02-15",
+    "fromDate": "2022-02-29",
+    "hall": {
+        "hallId": 503
+    },
+    "movies":{
+        "movieId":1002
+    }
+}
+
+mysql> select * from shows;
++---------+------------+---------+------------+---------+----------+
+| show_id | from_date  | slot_no | to_date    | hall_id | movie_id |
++---------+------------+---------+------------+---------+----------+
+|    1001 | 2022-01-28 |       1 | 2022-01-01 |     502 |     1002 |
++---------+------------+---------+------------+---------+----------+
+1 row in set (0.00 sec)
+
+===========================================
+
+ERRORS:
+
+
+Errors:
+1)Main class not found exception
+Solution:	add properties of main class in pom.xml
+<properties>
+		<java.version>1.8</java.version>
+		 <start-class>com.multiplex.MultiplexBookingSystemApplication</start-class>
+	</properties>
+	
+2)Description:
+Field dao in com.multiplex.Service.ShowsService required a bean of type 'com.multiplex.Repository.ShowsDao' that could not be found.
+Solution: add JpaRepository<> in dao
+
+3)EntityManagerFactory
+Solution: Don't use FK variables empty entity file

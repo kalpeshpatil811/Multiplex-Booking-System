@@ -1,0 +1,91 @@
+GetMapping:-
+http://localhost:9092/multiplex/hallCapacity
+[
+    {
+        "hallCapId": 3,
+        "seatCount": 600,
+        "seatType": {
+            "seatTypeId": 101,
+            "seatTypeDesc": "Platinum Row",
+            "seatFare": 500.0
+        },
+        "hall": {
+            "hallId": 201,
+            "hallDesc": "multiplex",
+            "totalCapacity": 500
+        }
+    }
+]
+
+*******************************************************************************
+PostMapping:-
+http://localhost:9092/multiplex/hallCapacity
+
+I/P:- {
+        "hallCapId": 1,
+        "seatCount": "600",
+        "seatType":{
+            "seatTypeId":101
+        },
+        "hall":{
+            "hallId":201
+
+        }
+    }
+
+O/P :- {
+    "hallCapId": 1,
+    "seatCount": 600,
+    "seatType": {
+        "seatTypeId": 101,
+        "seatTypeDesc": "Platinum Row",
+        "seatFare": 500.0
+    },
+    "hall": {
+        "hallId": 201,
+        "hallDesc": "multiplex",
+        "totalCapacity": 500
+    }
+}
+
+***************************************************************************************
+GetBy I'd:- 
+http://localhost:9092/multiplex/hallCapacity/{id}
+
+O/P:- {
+    "hallCapId": 4,
+    "seatCount": 900,
+    "seatType": {
+        "seatTypeId": 102,
+        "seatTypeDesc": "Diamond Row",
+        "seatFare": 400.0
+    },
+    "hall": {
+        "hallId": 202,
+        "hallDesc": "Theater",
+        "totalCapacity": 700
+    }
+}
+
+***************************************************************************************
+Put(Update) Mapping:-
+http://localhost:9092/multiplex/hallCapacity
+
+O/P:- {
+    "hallCapId": 4,
+    "seatCount": 900,
+    "seatType": {
+        "seatTypeId": 102,
+        "seatTypeDesc": "VIP Row",
+        "seatFare": 400.0
+    },
+    "hall": {
+        "hallId": 202,
+        "hallDesc": "Theater",
+        "totalCapacity": 700
+    }
+}
+
+****************************************************************************************
+Delete Mapping:-
+http://localhost:9092/multiplex/hallCapacity/{id}

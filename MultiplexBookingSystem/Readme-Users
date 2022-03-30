@@ -1,0 +1,98 @@
+GetMapping:-
+http://localhost:9091/multiplex/users
+
+O/p:-
+[
+    {
+        "userId": 101,
+        "userName": "Nimesh Lande",
+        "userType": "Admin",
+        "emailId": "nimeshlande@gmail.com",
+        "password": "root",
+        "mobileNumber": "9874563210"
+    },
+    {
+        "userId": 102,
+        "userName": "Onkar",
+        "userType": "Admin",
+        "emailId": "onkark@gmail.com",
+        "password": "root",
+        "mobileNumber": "9874563211"
+    },
+    {
+        "userId": 103,
+        "userName": "Kalpesh",
+        "userType": "Admin",
+        "emailId": "kalpesh@gmail.com",
+        "password": "root",
+        "mobileNumber": "9874563212"
+    },
+    {
+        "userId": 104,
+        "userName": "Akshata",
+        "userType": "User",
+        "emailId": "akshatag@gmail.com",
+        "password": "root",
+        "mobileNumber": "9874563213"
+    },
+    {
+        "userId": 105,
+        "userName": "Laxman",
+        "userType": "User",
+        "emailId": "laxmanadkune@gmail.com",
+        "password": "root",
+        "mobileNumber": "9874563214"
+    },
+    {
+        "userId": 106,
+        "userName": "Yash",
+        "userType": "User",
+        "emailId": "yashg@gmail.com",
+        "password": "root",
+        "mobileNumber": "9874563215"
+    }
+]
+------------------------------------------------------------------------------------------------
+
+PostMapping:-
+http://localhost:9091/multiplex/users
+
+{
+    "userId": 101,
+    "userName": "Nimesh Lande",
+    "userType": "Admin",
+    "emailId": "nimeshlande@gmail.com",
+    "password": "root",
+    "mobileNumber": "9874563210"
+}
+------------------------------------------------------------------------------------------------
+
+GetBy I'd:-
+http://localhost:9091/multiplex/users/{I'd}
+
+O/p :- {
+    "userId": 101,
+    "userName": "Nimesh Lande",
+    "userType": "M",
+    "emailId": "nimeshlande@gmail.com",
+    "password": "root",
+    "mobileNumber": "9874563210"
+}
+-------------------------------------------------------------------------------------------------
+
+Update(Put) :- 
+http://localhost:9091/multiplex/users
+
+O/p :- {
+    "userId": 101,
+    "userName": "Nimesh Lande",
+    "userType": "M",
+    "emailId": "nimeshlande@gmail.com",
+    "password": "root",
+    "mobileNumber": "9874563210"
+}
+
+----------------------------------------------------------------------------------------------------
+
+Delete Mapping:- http://localhost:9091/multiplex/users/{I'd}
+-----------------------------------------------------------------------------------------------------
