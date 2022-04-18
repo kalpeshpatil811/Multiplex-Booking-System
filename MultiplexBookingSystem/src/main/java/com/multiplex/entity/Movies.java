@@ -22,15 +22,23 @@ public class Movies {
 
 	@Column(name = "movieName")
 	private String movieName;
+	
+	@Column(name = "prize")
+	private String prize;
+	
+	@Column(name = "description")
+	private String description;
 
 	public Movies() {
 		super();
 	}
 
-	public Movies(int movieId, String movieName) {
+	public Movies(int movieId, String movieName, String prize, String description) {
 		super();
 		this.movieId = movieId;
 		this.movieName = movieName;
+		this.prize = prize;
+		this.description = description;
 	}
 
 	public int getMovieId() {
@@ -47,6 +55,22 @@ public class Movies {
 
 	public void setMovieName(String movieName) {
 		this.movieName = movieName;
+	}
+
+	public String getPrize() {
+		return prize;
+	}
+
+	public void setPrize(String prize) {
+		this.prize = prize;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

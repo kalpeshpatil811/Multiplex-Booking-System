@@ -1,6 +1,5 @@
 package com.multiplex.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +27,7 @@ public class BookingDetail {
 	@Column(name = "noOfSeats")
 	private int noOfSeats;
 
-	@OneToOne(cascade=CascadeType.REMOVE)
+	@OneToOne
 	@JoinColumn(name="bookingId")
 	private Booking booking;
 

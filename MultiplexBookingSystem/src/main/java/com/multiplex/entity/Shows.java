@@ -28,7 +28,10 @@ public class Shows {
 
 	@Column(name = "slotNo")
 	private int slotNo;
-
+	
+	@Column(name="showTime")
+	private String showTime;
+	
 	@Column(name = "fromDate")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date fromDate;
@@ -49,10 +52,11 @@ public class Shows {
 		super();
 	}
 
-	public Shows(int showId, int slotNo, Date fromDate, Date toDate, Hall hall, Movies movies) {
+	public Shows(int showId, int slotNo, String showTime, Date fromDate, Date toDate, Hall hall, Movies movies) {
 		super();
 		this.showId = showId;
 		this.slotNo = slotNo;
+		this.showTime = showTime;
 		this.fromDate = fromDate;
 		this.toDate = toDate;
 		this.hall = hall;
@@ -73,6 +77,14 @@ public class Shows {
 
 	public void setSlotNo(int slotNo) {
 		this.slotNo = slotNo;
+	}
+
+	public String getShowTime() {
+		return showTime;
+	}
+
+	public void setShowTime(String showTime) {
+		this.showTime = showTime;
 	}
 
 	public Date getFromDate() {
